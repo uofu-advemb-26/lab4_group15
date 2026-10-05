@@ -16,8 +16,9 @@ BaseType_t signal_request_calculate(SemaphoreHandle_t request,
     
     if (xSemaphoreGive(request) == pdTRUE) {
         // Wait for calcualtion to be signaled as complete
-        if (xSemaphoreTake(response, portMAX_DELAY) == pdTRUE)
+        if (xSemaphoreTake(response, (TickType_t) 1000) == pdTRUE)
             return pdTRUE;
+        else { printf("Signal Request Timed Out Waiting for Calculation\n"); }
     }
     return pdFALSE;
 }
