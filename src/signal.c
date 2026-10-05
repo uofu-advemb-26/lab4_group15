@@ -19,5 +19,5 @@ BaseType_t signal_request_calculate(SemaphoreHandle_t request,
         if (xSemaphoreTake(response, portMAX_DELAY) == pdTRUE)
             return pdTRUE;
     }
-    return pdFALSE:
+    return pdFALSE;
 }
