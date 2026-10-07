@@ -1,6 +1,7 @@
 #pragma once
 #include <FreeRTOS.h>
 #include <queue.h>
+#include <stdio.h>
 
 struct request_msg {
     int32_t input;
