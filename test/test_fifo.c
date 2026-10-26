@@ -88,7 +88,8 @@ void test_full(void)
 void test_single(void)
 {
     struct request_msg data = {42, -1, 0};
-    xQueueSendToBack(request, &data, portMAX_DELAY);
+    // check both pushing to request and popping from response queue returned no errors
+    TEST_ASSERT_EQUAL_INT(pdTRUE, xQueueSendToBack(request, &data, portMAX_DELAY));
     TEST_ASSERT_EQUAL_INT(pdTRUE, xQueueReceive(response, &data, portMAX_DELAY));
     TEST_ASSERT_EQUAL_INT(data.input, 42);
     TEST_ASSERT_EQUAL_INT(data.input + 5, data.output);
