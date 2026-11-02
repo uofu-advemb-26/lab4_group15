@@ -118,6 +118,8 @@ void runner_thread (__unused void *args)
         RUN_TEST(test_out_of_order);
         RUN_TEST(test_request);
         RUN_TEST(test_noone_home);
+        RUN_TEST(test_noop);
+        RUN_TEST(test_out_of_order);
         UNITY_END();
         sleep_ms(5000);
     }
